@@ -32,7 +32,7 @@
             </li>
             <li>
                 <a href="/Login" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Login</a>
+                    Login </a>
             </li>
         </ul>
     </nav>
