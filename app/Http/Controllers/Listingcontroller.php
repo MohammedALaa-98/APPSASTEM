@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
+use App\Http\Controllers\Controller;
+
 
 class Listingcontroller extends Controller
 {
@@ -46,7 +47,7 @@ class Listingcontroller extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        // $formFields['user_id'] = auth()->id();
+        $formFields['user_id'] = auth()->id();
 
         Listing::create($formFields);
 
@@ -99,10 +100,10 @@ class Listingcontroller extends Controller
         return redirect('/')->with('message', 'Listing deleted successfully');
     }
 
-    // // Manage Listings
-    // public function manage() {
-    //     return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
-    // }
+    // Manage Listings
+    public function manage() {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+    }
 
 
 
