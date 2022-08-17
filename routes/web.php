@@ -36,9 +36,17 @@ Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
 // Delete Listing
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create']);
 
-// show Register /create form
-Route::get('/register',[Usercontroller::class,'create']);
+// Create New User
+Route::post('/users', [UserController::class, 'store']);
 
-//create new User
-Route::post('/User',[Usercontroller::class,'store']);
+// Log User Out
+Route::post('/logout', [UserController::class, 'logout']);
+
+// Show Login Form
+// Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+// Log In User
+// Route::post('/users/authenticate', [UserController::class, 'authenticate']);

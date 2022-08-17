@@ -12,7 +12,6 @@ class Usercontroller extends Controller
     // show Register /create form
     public function create()
     {
-
         return view('users.register');
     }
 
@@ -25,16 +24,16 @@ class Usercontroller extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        // // Hash Password
-        // $formFields['password'] = bcrypt($formFields['password']);
+        // Hash Password
+        $formFields['password'] = bcrypt($formFields['password']);
 
-        // // Create User
-        // $user = User::create($formFields);
+        // Create User
+        $user = User::create($formFields);
 
-        // // Login
-        // auth()->login($user);
+        // Login
+        auth()->login($user);
 
-        // return redirect('/')->with('message', 'User created and logged in');
+        return redirect('/')->with('message', 'User created and logged in');
     }
     //  // Logout User
     //  public function logout(Request $request) {
